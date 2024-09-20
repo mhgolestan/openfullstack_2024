@@ -6,14 +6,14 @@ const Statistics = ({isStats, good, neutral, bad, all, average,positive}) =>{
       <h1>Statistics:</h1>
       {
       isStats ?
-        <div>
+        <table>
           <StatisticLine text="Good" value={good} />
           <StatisticLine text="neutral" value={neutral} />
           <StatisticLine text="bad" value={bad} />
           <StatisticLine text="all" value={all} />
           <StatisticLine text="average" value={average} />
           <StatisticLine text="positive" value={positive} />
-        </div>
+        </table>
         : 
         <p>No feedback given</p>
       }
@@ -21,7 +21,14 @@ const Statistics = ({isStats, good, neutral, bad, all, average,positive}) =>{
   )
 }
 
-const StatisticLine = ({text, value}) => <p>{text}: {value}</p>
+const StatisticLine = ({text, value}) => {
+  return(
+    <tr>
+      <td>{text}</td>
+      <td>{value}</td>
+    </tr>
+  )
+}
 
 const Button = ({clickHandler, bText}) => {
   return(
