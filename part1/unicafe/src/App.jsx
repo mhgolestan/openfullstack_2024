@@ -60,6 +60,7 @@ const App = () => {
     setStats(newStats)
   }
 
+  const noStats = stats.all == 0
 
   return(
     <div>
@@ -68,7 +69,8 @@ const App = () => {
       <button onClick={handleClickNeutral}>Neutral</button>
       <button onClick={handleClickBad}>Bad</button>
 
-      <Statistics good={stats.good} neutral={stats.neutral} bad={stats.bad} all={stats.all} average={stats.average} positive={stats.positive}/>
+      {noStats ? <p>No feedback given</p> : <Statistics good={stats.good} neutral={stats.neutral} bad={stats.bad} all={stats.all} average={stats.average} positive={stats.positive}/>}
+
     </div>
   )
 }
